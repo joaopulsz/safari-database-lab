@@ -64,5 +64,10 @@ INSERT INTO animals ( name, type, age, enclosure_id) VALUES ('Greenwood', 'fish'
 INSERT INTO animals ( name, type, age, enclosure_id) VALUES ('Ronaldo', 'bird', 22, 4);
 INSERT INTO animals ( name, type, age, enclosure_id) VALUES ('Sancho', 'boar', 9, 2);
 
+-- ANSWERS TO MVP QUESTIONS
 SELECT name FROM animals WHERE enclosure_id = 2;
 SELECT staff.name FROM staff INNER JOIN assignments ON staff.id = assignments.employee_id INNER JOIN enclosures ON assignments.enclosure_id = enclosures.id WHERE enclosure_id = 3 ;
+
+-- ANSWERS TO EXTENSIONS
+SELECT staff.name FROM staff INNER JOIN assignments ON staff.id = assignments.employee_id INNER JOIN enclosures ON assignments.enclosure_id = enclosures.id WHERE closed_for_maintenance = true;
+SELECT enclosures.name FROM enclosures INNER JOIN animals ON enclosures.id = animals.enclosure_id ORDER BY animals.age DESC LIMIT 1;
