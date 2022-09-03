@@ -71,3 +71,6 @@ SELECT staff.name FROM staff INNER JOIN assignments ON staff.id = assignments.em
 -- ANSWERS TO EXTENSIONS
 SELECT staff.name FROM staff INNER JOIN assignments ON staff.id = assignments.employee_id INNER JOIN enclosures ON assignments.enclosure_id = enclosures.id WHERE closed_for_maintenance = true;
 SELECT enclosures.name FROM enclosures INNER JOIN animals ON enclosures.id = animals.enclosure_id ORDER BY animals.age DESC LIMIT 1;
+SELECT COUNT(DISTINCT animals.type) FROM animals INNER JOIN enclosures ON enclosures.id = animals.enclosure_id INNER JOIN assignments ON assignments.enclosure_id = enclosures.id INNER JOIN staff ON staff.id = assignments.employee_id WHERE staff.id = 1;
+SELECT COUNT(DISTINCT staff.id) FROM staff INNER JOIN assignments ON staff.id = employee_id INNER JOIN enclosures ON enclosures.id = enclosure_id WHERE enclosures.id = 1;
+SELECT creatures.name FROM animals INNER JOIN enclosures ON animals.enclosure_id = enclosures.id INNER JOIN animals AS creatures ON enclosures.id = creatures.enclosure_id WHERE animals.id = 2;
